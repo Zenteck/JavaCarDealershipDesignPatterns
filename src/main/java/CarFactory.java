@@ -5,10 +5,20 @@ import Components.Tyres;
 
 public class CarFactory {
 
+    private static CarFactory instance = new CarFactory();
+
         private Engine engine = new Engine();
         private Tyres tyres = new Tyres();
         private PineTree pineTree = new PineTree();
         private Battery battery = new Battery();
+
+        private CarFactory(){}
+
+        public static CarFactory getInstance(){
+            return instance;
+        }
+
+
 
     public Car getCar(String carType) {
         if (carType == null) {
